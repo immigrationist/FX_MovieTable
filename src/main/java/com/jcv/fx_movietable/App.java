@@ -15,15 +15,16 @@ public class App extends Application {
 
     private static Scene scene;
 
+
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 640, 480);
+        scene = new Scene(loadFXML("main"), 640, 480);
         stage.setScene(scene);
         stage.show();
     }
 
-    static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
+    static void setRoot() throws IOException {
+        scene.setRoot(loadFXML("secondary"));
     }
 
     public static Parent loadFXML(String fxml) throws IOException {

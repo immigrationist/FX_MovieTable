@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -11,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="600.0" prefWidth="800.0" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jcv.fx_movietable.PrimaryController">
+<VBox alignment="CENTER" prefHeight="600.0" prefWidth="800.0" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jcv.fx_movietable.PrimaryController" >
    <children>
       <Label text="Movie Library">
          <font>
@@ -19,18 +20,18 @@
          </font></Label>
       <TableView fx:id="tblMovies" editable="true">
         <columns>
-          <TableColumn fx:id="clmTitle" onEditCommit="#titleChanged" prefWidth="120.0" text="Title" />
-          <TableColumn fx:id="clmYear" onEditCommit="#yearChanged" prefWidth="136.0" text="Year" />
-            <TableColumn fx:id="clmGenre" onEditCommit="#genreChanged" prefWidth="127.0" text="Genre" />
+          <TableColumn fx:id="clmName" onEditCommit="#titleChanged" prefWidth="120.0" text="Name" />
+          <TableColumn fx:id="clmAge" onEditCommit="#ageChanged" prefWidth="136.0" text="Age" />
+            <TableColumn fx:id="clmSubtype" onEditCommit="#subtypeChanged" prefWidth="127.0" text="Subtype" />
             <TableColumn fx:id="clmRebirth" onEditCommit="#rebirthChanged" prefWidth="75.0" text="Rebirth" />
         </columns>
       </TableView>
       <HBox spacing="10.0">
          <children>
-            <TextField fx:id="txtTitle" promptText="Enter TItle" />
-            <TextField fx:id="txtGenre" promptText="Enter Genre" />
-            <TextField fx:id="txtYear" prefHeight="26.0" prefWidth="124.0" promptText="Enter Year" />
-            <DatePicker fx:id="datePicker" />
+            <TextField fx:id="txtName" promptText="Enter Character Name" />
+            <ComboBox fx:id="cbxSubtype" prefHeight="26.0" prefWidth="207.0" promptText="Choose Character Subtype" />
+            <TextField fx:id="txtAge" prefHeight="26.0" prefWidth="69.0" promptText="Enter Age" />
+            <DatePicker fx:id="datePicker" prefHeight="26.0" prefWidth="172.0" promptText="Character Rebirth" />
             <Button fx:id="btnAddMovie" mnemonicParsing="false" onAction="#addButtonPressed" text="Add Movie" />
          </children>
       </HBox>
