@@ -1,16 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.jcv.fx_movietable;
 
 import java.time.LocalDate;
 import javafx.beans.property.SimpleStringProperty;
 
-/**
- *
- * @author shin_
- */
 public class HorrorCharacter
 {
     private SimpleStringProperty name;

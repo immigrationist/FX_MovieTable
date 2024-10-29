@@ -12,13 +12,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="600.0" prefWidth="800.0" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jcv.fx_movietable.PrimaryController" >
+<VBox alignment="CENTER" prefHeight="600.0" prefWidth="800.0" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jcv.fx_movietable.PrimaryController">
    <children>
-      <Label text="Movie Library">
+      <Label text="Character Library">
          <font>
             <Font size="18.0" />
          </font></Label>
-      <TableView fx:id="tblMovies" editable="true">
+      <TableView fx:id="tblCharacters" editable="true">
         <columns>
           <TableColumn fx:id="clmName" onEditCommit="#titleChanged" prefWidth="120.0" text="Name" />
           <TableColumn fx:id="clmAge" onEditCommit="#ageChanged" prefWidth="136.0" text="Age" />
@@ -28,25 +28,35 @@
       </TableView>
       <HBox spacing="10.0">
          <children>
-            <TextField fx:id="txtName" promptText="Enter Character Name" />
-            <ComboBox fx:id="cbxSubtype" prefHeight="26.0" prefWidth="207.0" promptText="Choose Character Subtype" />
-            <TextField fx:id="txtAge" prefHeight="26.0" prefWidth="69.0" promptText="Enter Age" />
-            <DatePicker fx:id="datePicker" prefHeight="26.0" prefWidth="172.0" promptText="Character Rebirth" />
-            <Button fx:id="btnAddMovie" mnemonicParsing="false" onAction="#addButtonPressed" text="Add Movie" />
+            <TextField fx:id="txtName" prefHeight="26.0" prefWidth="135.0" promptText="Enter Character Name" />
+            <ComboBox fx:id="cbxSubtype" prefHeight="26.0" prefWidth="194.0" promptText="Choose Character Subtype" />
+            <TextField fx:id="txtAge" prefHeight="26.0" prefWidth="69.0" promptText="Enter Age">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin></TextField>
+            <DatePicker fx:id="datePicker" prefHeight="26.0" prefWidth="172.0" promptText="Character Rebirth">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin></DatePicker>
          </children>
       </HBox>
-      <HBox>
+      <HBox prefHeight="21.0" prefWidth="760.0">
          <children>
-            <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#deleteButtonPressed" prefHeight="26.0" prefWidth="108.0" text="Delete Movie">
-               <HBox.margin>
-                  <Insets right="10.0" />
-               </HBox.margin>
-            </Button>
-            <Button fx:id="btnSecondary" mnemonicParsing="false" onAction="#sendDataToSecondary" prefHeight="26.0" prefWidth="114.0" text="Send Movie Data">
-               <HBox.margin>
-                  <Insets left="10.0" />
-               </HBox.margin>
-            </Button>
+            <HBox prefHeight="9.0" prefWidth="760.0">
+               <children>
+                  <Button fx:id="bttnAddCharacter" mnemonicParsing="false" onAction="#addButtonPressed" text="Add Character" />
+                  <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#deleteButtonPressed" prefHeight="26.0" prefWidth="123.0" text="Delete Character">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="btnSecondary" mnemonicParsing="false" onAction="#sendDataToSecondary" prefHeight="26.0" prefWidth="156.0" text="Send Character Data">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
          </children>
       </HBox>
    </children>
