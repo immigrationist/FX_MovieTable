@@ -6,12 +6,16 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="301.0" prefWidth="324.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jcv.fx_movietable.SecondaryController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="335.0" prefWidth="352.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jcv.fx_movietable.SecondaryController">
    <children>
       <VBox alignment="CENTER" layoutX="66.0" layoutY="12.0" prefHeight="272.0" prefWidth="262.0" spacing="20.0">
          <children>
-            <Label text="Secondary View" />
+            <Label text="Secondary View">
+               <font>
+                  <Font name="Times New Roman Bold" size="20.0" />
+               </font></Label>
             <TextField fx:id="txtName" prefHeight="26.0" prefWidth="124.0" />
             <TextField fx:id="txtAge" />
             <TextField fx:id="txtSubtype" />
@@ -25,31 +29,43 @@
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </padding>
       </VBox>
-      <VBox layoutX="14.0" layoutY="68.0" prefHeight="176.0" prefWidth="89.0">
+      <VBox layoutX="29.0" layoutY="72.0" prefHeight="167.0" prefWidth="50.0">
          <children>
-            <Label alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="124.0" text="Name">
+            <Label alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="19.0" prefWidth="44.0" text="Name:">
                <VBox.margin>
-                  <Insets top="5.0" />
+                  <Insets top="7.0" />
                </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
             </Label>
-            <Label alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="124.0" text="Age">
+            <Label alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="14.0" prefWidth="41.0" text="Age:">
                <VBox.margin>
-                  <Insets top="20.0" />
+                  <Insets top="26.0" />
                </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
             </Label>
-            <Label alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="124.0" text="Subtype">
+            <Label alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="53.0" text="Subtype:">
                <VBox.margin>
-                  <Insets top="20.0" />
+                  <Insets top="30.0" />
                </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
             </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="124.0" text="Rebirth">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="49.0" text="Rebirth:">
                <VBox.margin>
-                  <Insets top="17.0" />
+                  <Insets top="28.0" />
                </VBox.margin>
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font>
             </Label>
          </children>
       </VBox>
-      <Button fx:id="bttnUpdate" layoutX="22.0" layoutY="244.0" mnemonicParsing="false" onAction="#setBttnUpdate" text="Update" />
-      <Button fx:id="bttnComplete" layoutX="15.0" layoutY="274.0" mnemonicParsing="false" onAction="#setBttnComplete" text="Complete" />
+      <Button fx:id="bttnUpdate" layoutX="25.0" layoutY="258.0" mnemonicParsing="false" onAction="#setBttnUpdate" text="Update" />
+      <Button fx:id="bttnComplete" layoutX="19.0" layoutY="292.0" mnemonicParsing="false" onAction="#setBttnComplete" text="Complete" />
    </children>
 </AnchorPane>

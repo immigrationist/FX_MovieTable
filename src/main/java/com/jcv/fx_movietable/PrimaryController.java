@@ -6,9 +6,7 @@ import java.time.LocalDate;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-import javafx.beans.InvalidationListener;
 import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -36,9 +34,10 @@ public class PrimaryController implements Initializable{
     @FXML private Button bttnAddCharacter;
     @FXML private Button btnDelete;
     @FXML private Button btnSecondary;
-    @FXML private ComboBox<String> cbxSubtype;
+
     @FXML private TextField txtName;
     @FXML private TextField txtAge;
+    @FXML private ComboBox<String> cbxSubtype;
     @FXML private DatePicker datePicker;
 
     private static final ObservableList<HorrorCharacter> characterList = FXCollections.observableArrayList();
@@ -95,7 +94,6 @@ public class PrimaryController implements Initializable{
         HorrorCharacter characterSelected = tblCharacters.getSelectionModel().getSelectedItem();
         characterSelected.setAge(Integer.parseInt(editedAge.getNewValue().toString()));
     }
-
     @FXML
     public void rebirthChanged(CellEditEvent editedRebirth){
         HorrorCharacter characterSelected = tblCharacters.getSelectionModel().getSelectedItem();
@@ -106,71 +104,86 @@ public class PrimaryController implements Initializable{
     @FXML
     public void addButtonPressed()
     {
-        String title = txtName.getText();
-        String subtype = cbxSubtype.getSelectionModel().getSelectedItem();
-        int age = Integer.parseInt(txtAge.getText());
-        LocalDate rebirth = datePicker.getValue();
-        HorrorCharacter newCharacter = new HorrorCharacter(title, subtype, age, rebirth);
+        if(txtName.getText() != null && txtAge.getText() != null && datePicker.getValue() != null && cbxSubtype.getSelectionModel().getSelectedItem() != null) {
+            String name = txtName.getText();
+            String subtype = cbxSubtype.getSelectionModel().getSelectedItem();
+            int age = Integer.parseInt(txtAge.getText());
+            LocalDate rebirth = datePicker.getValue();
+            HorrorCharacter newCharacter = new HorrorCharacter(name, subtype, age, rebirth);
 
-        tblCharacters.getItems().add(newCharacter);
+            tblCharacters.getItems().add(newCharacter);
 
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Information");
-        alert.setHeaderText(null);
-        alert.setContentText("Character " + title + " added successfully");
-        Optional<ButtonType> result = alert.showAndWait();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information");
+            alert.setHeaderText(null);
+            alert.setContentText("Character " + name + " added successfully");
+            Optional<ButtonType> result = alert.showAndWait();
+        }
+        else{
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText(null);
+            alert.setContentText("You have not entered enough information!");
+            alert.showAndWait();
+        }
 
     }
 
     @FXML
     public void deleteButtonPressed(ActionEvent e)
     {
-        ObservableList<HorrorCharacter> selectedRows = tblCharacters.getSelectionModel().getSelectedItems();
+        ObservableList<HorrorCharacter> selectedRow = tblCharacters.getSelectionModel().getSelectedItems();
 
+        if(tblCharacters.getSelectionModel().getSelectedItem() != null) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation");
+            alert.setHeaderText(null);
+            alert.setContentText("Are you sure you want to delete this character?");
+            Optional<ButtonType> result = alert.showAndWait();
 
+            if (alert.getResult() == ButtonType.OK) {
+                for (HorrorCharacter m : selectedRow) {
+                    characterList.remove(m);
 
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Confirmation");
-        alert.setHeaderText(null);
-        alert.setContentText("Are you sure you want to delete this character?");
-        Optional<ButtonType> result = alert.showAndWait();
-
-        if (alert.getResult() == ButtonType.OK){
-            for(HorrorCharacter m : selectedRows)
-            {
-                characterList.remove(m);
-
-                alert.alertTypeProperty().setValue(Alert.AlertType.INFORMATION);
-                alert.setTitle("Information");
-                alert.setHeaderText(null);
-                alert.setContentText("Character " + "'" + m.getName() + "'" + " deleted successfully");
-                Optional<ButtonType> result1 = alert.showAndWait();
+                    alert.alertTypeProperty().setValue(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Information");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Character " + "'" + m.getName() + "'" + " deleted successfully");
+                    alert.showAndWait();
+                }
             }
         }
-        else if(result.get() == ButtonType.OK){
-            alert.alertTypeProperty().setValue(Alert.AlertType.INFORMATION);
-            alert.setTitle("Information");
+        else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
             alert.setHeaderText(null);
             alert.setContentText("You have not selected any character");
+            alert.showAndWait();
         }
-
     }
 
     @FXML
     public void sendDataToSecondary(ActionEvent e) throws IOException
     {
-        HorrorCharacter m = tblCharacters.getSelectionModel().getSelectedItem();
-                
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("secondary.fxml"));
-        Parent root = loader.load();                                //needed for scene switch
-        SecondaryController sc = loader.getController();     //new instance, via secondary.fxml
-        sc.initData(m);                                      //method from SecondaryController
+        if(tblCharacters.getSelectionModel().getSelectedItem() != null) {
+            HorrorCharacter m = tblCharacters.getSelectionModel().getSelectedItem();
 
-        Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("secondary.fxml"));
+            Parent root = loader.load();                                //needed for scene switch
+            SecondaryController sc = loader.getController();     //new instance, via secondary.fxml
+            sc.initData(m);                                      //method from SecondaryController
+
+            Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+        else{
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText(null);
+            alert.setContentText("You have not selected any character");
+            alert.showAndWait();
+        }
     }
-
-
 }

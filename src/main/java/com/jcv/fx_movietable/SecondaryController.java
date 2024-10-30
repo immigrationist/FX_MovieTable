@@ -3,19 +3,19 @@ package com.jcv.fx_movietable;
 import java.io.IOException;
 import java.util.Objects;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class SecondaryController  {
+public class SecondaryController {
+
+
     @FXML private TextField txtName;
     @FXML private TextField txtAge;
     @FXML private TextField txtSubtype;
@@ -23,8 +23,6 @@ public class SecondaryController  {
     @FXML private Button bttnSwitch;
     @FXML private Button bttnUpdate;
     @FXML private Button bttnComplete;
-
-
 
     @FXML
     public void initData(HorrorCharacter m)
@@ -57,6 +55,13 @@ public class SecondaryController  {
     }
 
     public void setBttnUpdate(ActionEvent e){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText("Success!");
+        alert.setContentText("You can now edit! " +
+                "\nSadly, this won't change the data in the Table... yet.");
+        alert.showAndWait();
+
         txtName.setEditable(true);
         txtAge.setEditable(true);
         txtSubtype.setEditable(true);
@@ -64,8 +69,13 @@ public class SecondaryController  {
     }
 
     public void setBttnComplete(ActionEvent e){
-
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText("Button Information");
+        alert.setContentText("This feature is in maintenance");
+        alert.showAndWait();
     }
+
 
 
 }
