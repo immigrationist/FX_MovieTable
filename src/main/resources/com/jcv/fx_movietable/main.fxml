@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="445.0" prefWidth="617.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jcv.fx_movietable.PrimaryController">
+<AnchorPane prefHeight="445.0" prefWidth="617.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jcv.fx_movietable.Main">
    <children>
       <TableView fx:id="tblCharacters" layoutX="281.0" layoutY="58.0" prefHeight="375.0" prefWidth="332.0">
          <columns>
@@ -37,5 +37,6 @@
             <Font name="Times New Roman Bold" size="20.0" />
          </font>
       </Label>
+      <Button fx:id="bttnUpdate" layoutX="83.0" layoutY="359.0" mnemonicParsing="false" text="Button" />
    </children>
 </AnchorPane>

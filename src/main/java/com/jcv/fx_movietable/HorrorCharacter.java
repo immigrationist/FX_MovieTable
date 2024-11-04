@@ -3,14 +3,14 @@ package com.jcv.fx_movietable;
 import java.time.LocalDate;
 import javafx.beans.property.SimpleStringProperty;
 
-public class HorrorCharacter
-{
+public class HorrorCharacter{
+
     private SimpleStringProperty name;
     private SimpleStringProperty subtype;
     private int age;
     private LocalDate rebirth;
 
-    public HorrorCharacter(String name, String subtype, int age, LocalDate rebirth) {
+    public HorrorCharacter(String name, int age, String subtype, LocalDate rebirth) {
         this.name = new SimpleStringProperty(name);
         this.subtype = new SimpleStringProperty(subtype);
         this.age = age;
@@ -49,28 +49,28 @@ public class HorrorCharacter
 
     public String toName(){
         String rep = "";
-        rep += this.getName() ;
+        rep += this.getName();
         return rep;
     }
 
     public String toAge(){
         String rep = "";
-        rep += this.getAge() ;
+        rep += this.getAge();
         return rep;
     }
 
     public String toSubtype(){
         String rep = "";
-        rep += this.getSubtype() ;
+        rep += this.getSubtype();
         return rep;
     }
 
     public String toRebirth(){
         String rep = "";
-        rep += this.getRebirth() ;
+        rep += this.getRebirth();
         return rep;
     }
 
 
-    
+
 }
