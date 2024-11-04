@@ -32,8 +32,7 @@ public class Main implements Initializable{
     @FXML private TableColumn<HorrorCharacter, String> clmName;
     @FXML private TableColumn<HorrorCharacter, Integer> clmAge;
     @FXML private TableColumn<HorrorCharacter, LocalDate> clmRebirth;
-    @FXML private Button bttnUpdate;
-    
+
     //New Character area
     @FXML private Button bttnAddCharacter;
     @FXML private Button btnDelete;

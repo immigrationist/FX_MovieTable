@@ -1,26 +1,31 @@
 package com.jcv.fx_movietable;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.Date;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class DisplayController {
+public class DisplayController implements Initializable {
 
 
     @FXML private TextField txtName;
     @FXML private TextField txtAge;
     @FXML private TextField txtSubtype;
     @FXML private TextField txtRebirth;
+    @FXML private Label txtInformation;
     @FXML private Button bttnSwitch;
     @FXML private Button bttnUpdate;
     @FXML private Button bttnComplete;
@@ -78,5 +83,8 @@ public class DisplayController {
     }
 
 
-
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        txtInformation.setText("Rebirth is shown as YYYY/MM/DD");
+    }
 }

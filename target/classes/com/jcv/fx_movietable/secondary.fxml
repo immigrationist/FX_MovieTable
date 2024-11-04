@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="335.0" prefWidth="352.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jcv.fx_movietable.DisplayController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="372.0" prefWidth="345.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jcv.fx_movietable.DisplayController">
    <children>
       <VBox alignment="CENTER" layoutX="66.0" layoutY="12.0" prefHeight="272.0" prefWidth="262.0" spacing="20.0">
          <children>
@@ -20,7 +20,8 @@
             <TextField fx:id="txtAge" />
             <TextField fx:id="txtSubtype" />
             <TextField fx:id="txtRebirth" prefHeight="26.0" prefWidth="187.0" />
-            <Button fx:id="bttnSwitch" mnemonicParsing="false" onAction="#switchToPrimary" text="Switch to Table">
+            <Label fx:id="txtInformation" text="Label" />
+            <Button fx:id="bttnSwitch" mnemonicParsing="false" onAction="#switchToPrimary" prefHeight="298.0" prefWidth="596.0" text="Switch to Table">
                <VBox.margin>
                   <Insets left="120.0" />
                </VBox.margin></Button>
@@ -65,7 +66,7 @@
             </Label>
          </children>
       </VBox>
-      <Button fx:id="bttnUpdate" layoutX="25.0" layoutY="258.0" mnemonicParsing="false" onAction="#setBttnUpdate" text="Update" />
-      <Button fx:id="bttnComplete" layoutX="19.0" layoutY="292.0" mnemonicParsing="false" onAction="#setBttnComplete" text="Complete" />
+      <Button fx:id="bttnUpdate" layoutX="25.0" layoutY="292.0" mnemonicParsing="false" onAction="#setBttnUpdate" text="Update" />
+      <Button fx:id="bttnComplete" layoutX="19.0" layoutY="325.0" mnemonicParsing="false" onAction="#setBttnComplete" text="Complete" />
    </children>
 </AnchorPane>
